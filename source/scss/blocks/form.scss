@@ -32,9 +32,9 @@
 .form__field {
   flex: none;
   margin-right: 3rem;
-  padding: 0 5.6rem;
+
   height: 6rem;
-  width: calc(100% - 21rem);
+  width: 0px;
   text-transform: uppercase;
   font: inherit;
   font-size: 2.4rem;
@@ -43,6 +43,10 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
+  margin-left: auto;
+  will-change: width, padding;
+  transition: all 500ms ease-out 150ms;
+  transform-origin: right center;
 
   &:focus {
     border: 1px solid $c-purple;
@@ -78,8 +82,15 @@
   }
 }
 
+.screen.active {
+  .form__field {
+    width: calc(100% - 21rem);
+    padding: 0 5.6rem;
+  }
+}
+
 .form__button {
-  flex-grow: 1;
+  flex-grow: 0;
 
   @media (orientation: portrait) {
     position: relative;
